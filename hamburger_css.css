@@ -1,0 +1,76 @@
+/*adding color variables to the root*/
+:root{
+    font-size: 16px;
+    --back01: rgb(34, 34, 34);
+    --line01: rgb(196, 209, 82);
+}
+
+/*styling the hamburger menu*/
+.hamburger {
+    position: absolute; /*fix the position of the menu*/
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--back01);
+    border: none; /* to remove the borders*/
+    top: 16px;
+    left: 16px;    
+    z-index: 10;
+}
+
+.hamburger::after, .hamburger::before{
+    content: "";
+    height: 20px;
+    border-left: 2px solid var(--line01);
+    transform: rotate(90deg);
+    margin: -3px;
+    transition: transform 0.3 ease;
+}
+
+.hamburger--active::after{
+    transform: rotate(135deg);
+}
+
+.hamburger--active::before{
+    transform: rotate(45deg);
+}
+
+/*styling the navigation bar*/
+.nav-bar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: var(--back01);    
+    transform: translate(-100%);
+    transition: transform 0.3s ease;
+    z-index: 5;
+}
+
+.nav-bar--active {
+    transform: translateX(0);
+}
+
+.nav-bar a {
+    font-family: defult;
+    font-size: 2rem;
+    padding: 12px 0;
+    margin: 16px;
+    color: var(--line01);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.nav-bar a:hover{
+    border-bottom: 1px solid var(--line01);
+}
+
